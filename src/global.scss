@@ -1,0 +1,427 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+/////variables
+:root {
+  --primary-color: #e32f4c;
+  --secundary-color: #60bfeb;
+  --white-color: #ffffff;
+  --white-low: #d8d8d8;
+  --black-color: #000000;
+  --text-color: #626262;
+  --gray-color: #a0a0a0;
+  --background-color: #f5f5f5;
+  --red-color: #ff7d69;
+
+  --border-radius-btn-small: 12px;
+  --border-radius-btn-normal: 24px;
+  --border-radius-btn-large: 34px;
+
+  --shadow-color-btn: rgba(67, 1, 43, 0.4);
+  --shadow-opacity-btn: 0.4;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--gray-color);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bolder;
+  color: var(--white-color);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white-color);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+h3 {
+  max-width: 50%;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white-low);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.colum {
+  flex-direction: column;
+}
+
+.requisito {
+  position: relative;
+  color: var(--red-color);
+  font-size: 18px;
+  font-weight: 800;
+  display: block;
+  margin-top: 0;
+  margin-left: 0.34rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-icon {
+  transform: scale(1);
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.app-logo {
+  transform: scale(1);
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  z-index: 99999;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.app-logo-samll {
+  transform: scale(1);
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+//////////////////////////// BOTONES //////////////////////////////
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 300px;
+  height: 74px;
+  border-radius: 24px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: var(--secundary-color);
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 28px;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--secundary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 35, 74, 0.3);
+  border: none;
+}
+
+.btn-secundary {
+  background-color: transparent;
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.btn-secundary:hover {
+  background-color: transparent;
+  transform: translateY(-2px);
+}
+
+.btn-terciary {
+  background-color: transparent;
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 26px;
+}
+
+//////////////////////////// INPUTS //////////////////////////////
+
+.btn-terciary:hover {
+  background-color: transparent;
+  transform: translateY(-2px);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  position: relative;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  color: var(--secundary-color);
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 70px;
+  background-color: var(--white-color) !important;
+  border: none;
+  border-radius: 18px;
+  padding: 0 40px 0 70px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gray-color);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: var(--gray-color);
+  font-weight: 700;
+}
+
+.form-group input:focus {
+  background-color: var(--white-color);
+  box-shadow: 0 0 0 3px rgba(59, 35, 74, 0.1);
+}
+
+.form-group input:valid:not(:placeholder-shown) {
+  background-color: var(--white-color);
+}
+
+/* Evitar cambio de color con autocompletado */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--white-color) inset !important;
+  -webkit-text-fill-color: var(--gray-color) !important;
+  background-color: var(--white-color) !important;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--secundary-color);
+  font-size: 18px;
+  z-index: 1;
+  transform: scale(0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-container {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .app-logo-samll {
+    width: 80px;
+    height: 80px;
+  }
+
+  .form-group label {
+    font-size: 22px;
+  }
+
+  .form-group input {
+    height: 60px;
+    font-size: 20px;
+    padding: 0 24px 0 55px;
+  }
+
+  .input-icon {
+    left: 18px;
+    font-size: 18px;
+  }
+
+  .btn {
+    height: 64px;
+    font-size: 24px;
+  }
+
+  .btn.google {
+    font-size: 20px;
+  }
+
+  .btn-terciary {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  .app-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .app-logo-samll {
+    width: 70px;
+    height: 70px;
+  }
+
+  .form-container {
+    padding: 10px;
+  }
+
+  .form-group label {
+    font-size: 20px;
+  }
+
+  .form-group input {
+    height: 55px;
+    font-size: 18px;
+    padding: 0 20px 0 50px;
+  }
+
+  .input-icon {
+    left: 15px;
+    font-size: 16px;
+  }
+
+  .btn {
+    height: 56px;
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .btn.google {
+    font-size: 18px;
+  }
+
+  .google-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

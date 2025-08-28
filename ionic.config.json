@@ -1,0 +1,7 @@
+{
+  "name": "Segundo_taller",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
