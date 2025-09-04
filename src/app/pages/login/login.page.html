@@ -1,21 +1,82 @@
 <ion-content [fullscreen]="true">
   <div class="container fade-in-up">
-    <picture class="icon-container">
-      <img class="app-logo" src="../../../assets/img/logo.png" title="logo" title="logo"
-        alt="logo app ionic" loading="lazy">
-    </picture>
+    <div class="logo-container">
+      <picture class="icon-container">
+        <img class="app-logo-samll" src="../../../assets/img/logo.png" title="logo" title="logo" alt="logo app ionic"
+          loading="lazy">
+      </picture>
+      <h1>Rutia</h1>
+    </div>
 
-    <h1>Rutia</h1>
+    <h3>La aventura esta por iniciar por favor inicia sesión</h3>
 
-    <h3 class="">Inicia una nueva aventura con rutia y descubre una nueva forma de ver el mundo</h3>
+    <form id="Form" novalidate method="POST" action="" enctype="">
+      <div class="form-container">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <i class="input-icon"><svg width="35" height="39" viewBox="0 0 35 39" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M32 32.5003C31.9999 30.8783 31.4238 29.7479 30.5273 28.8929C29.5862 27.9953 28.2213 27.3402 26.5957 26.8851C23.3286 25.9704 19.5404 26.0003 17.5 26.0003C15.4596 26.0003 11.6714 25.9704 8.4043 26.8851C6.77868 27.3402 5.41378 27.9953 4.47266 28.8929C3.57616 29.7479 3.00005 30.8783 3 32.5003C3 34.4333 4.56701 36.0003 6.5 36.0003H28.5C30.433 36.0003 32 34.4333 32 32.5003ZM35 32.5003C35 36.0901 32.0898 39.0003 28.5 39.0003H6.5C2.91015 39.0003 0 36.0901 0 32.5003C5.80507e-05 30.0419 0.92395 28.131 2.40234 26.721C3.83608 25.3538 5.7217 24.521 7.5957 23.9964C11.3286 22.9514 15.5404 23.0003 17.5 23.0003C19.4596 23.0003 23.6714 22.9514 27.4043 23.9964C29.2783 24.521 31.1639 25.3538 32.5977 26.721C34.0761 28.131 34.9999 30.0419 35 32.5003Z"
+                  fill="#60BFEB" />
+                <path
+                  d="M24 9.5C24 5.91016 21.0898 3 17.5 3C13.9101 3 11 5.91015 11 9.5C11 13.0899 13.9101 16 17.5 16C21.0898 16 24 13.0898 24 9.5ZM27 9.5C27 14.7467 22.7466 19 17.5 19C12.2533 19 8 14.7467 8 9.5C8 4.25329 12.2533 0 17.5 0C22.7466 0 27 4.25328 27 9.5Z"
+                  fill="#60BFEB" />
+              </svg>
+            </i>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required autocomplete="email">
+          </div>
+        </div>
 
-    <div class="button-container">
-            <button type="submit" class="btn btn-primary" onclick="next()">
-                Comenzar
-            </button>
-            <button type="submit" class="btn btn-terciary" onclick="next()">
-                Registrate
-            </button>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <div class="input-wrapper">
+            <i class="input-icon">
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M28.5 3.63078e-07C26.3919 -0.000483083 24.313 0.492849 22.4299 1.44046C20.5467 2.38808 18.9118 3.76363 17.656 5.45687C16.4002 7.15012 15.5585 9.11399 15.1983 11.1911C14.8382 13.2682 14.9696 15.4008 15.582 17.418L0 33V42H9L24.582 26.418C26.4389 26.9816 28.3954 27.1383 30.3183 26.8774C32.2412 26.6165 34.0852 25.9441 35.7247 24.9061C37.3643 23.868 38.7607 22.4887 39.819 20.8622C40.8772 19.2356 41.5724 17.4 41.8571 15.4805C42.1417 13.561 42.0093 11.6026 41.4686 9.73897C40.928 7.87528 39.992 6.15005 38.7243 4.68084C37.4566 3.21163 35.8871 2.03298 34.1227 1.22522C32.3583 0.417449 30.4405 -0.000449661 28.5 3.63078e-07ZM28.5 24C27.4673 23.9994 26.4403 23.8468 25.452 23.547L23.7315 23.025L22.461 24.2955L17.6895 29.067L15.621 27L13.5 29.121L15.5685 31.1895L13.1895 33.5685L11.121 31.5L9 33.621L11.0685 35.6895L7.758 39H3V34.242L17.703 19.539L18.975 18.2685L18.453 16.548C17.8119 14.4345 17.8535 12.1726 18.572 10.0841C19.2905 7.99567 20.6493 6.18694 22.4551 4.91524C24.2608 3.64354 26.4216 2.97362 28.63 3.0008C30.8385 3.02797 32.9821 3.75083 34.7561 5.06658C36.53 6.38232 37.8438 8.22393 38.5107 10.3295C39.1777 12.435 39.1636 14.6972 38.4707 16.7943C37.7778 18.8914 36.4412 20.7166 34.6511 22.0102C32.861 23.3039 30.7086 24.0002 28.5 24Z"
+                  fill="#60BFEB" />
+                <path
+                  d="M30 15C31.6569 15 33 13.6569 33 12C33 10.3431 31.6569 9 30 9C28.3431 9 27 10.3431 27 12C27 13.6569 28.3431 15 30 15Z"
+                  fill="#60BFEB" />
+              </svg></i>
+            <input type="password" id="password" name="password" placeholder="Escribe tu contraseña" required
+              autocomplete="current-password">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="button-container colum">
+      <button type="submit" class="btn btn-primary" (click)="login()">
+        Iniciar sesión
+      </button>
+      <button type="button" class="btn btn-terciary" (click)="RecoveryPassword()">
+        Recupera tu contraseña
+      </button>
+    </div>
+
+    <div class="button-container google colum">
+      <button type="button" class="btn btn-primary google" (click)="loginWithGoogle()">
+        <svg class="google-icon" viewBox="0 0 24 24">
+          <path fill="#4285F4"
+            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+          <path fill="#34A853"
+            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+          <path fill="#FBBC05"
+            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+          <path fill="#EA4335"
+            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+        </svg>
+        Ingresa con Google
+      </button>
+      <div class="google-container">
+        <h4>No tienes cuenta?</h4>
+        <button type="button" class="btn-terciary" (click)="navigateToSingUp()">
+          Registrate
+        </button>
+      </div>
     </div>
   </div>
 </ion-content>

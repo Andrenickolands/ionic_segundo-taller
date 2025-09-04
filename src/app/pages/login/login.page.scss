@@ -1,13 +1,46 @@
-.container{
-    background-color: var(--primary-color);
+.container {
+  background-color: var(--primary-color);
 }
 
-.button-container{
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-weight: 600;
 }
 
-h3{
-     margin-top: 3rem;
+.google-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.button-container.google {
+  margin-top: 1.2rem;
+}
+
+.btn.google {
+  background-color: var(--white-color);
+  color: var(--text-color);
+  font-weight: 600;
+  gap: 0.4rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 340px;
+}
+
+.btn-terciary {
+  margin-top: 0.4rem;
+  padding: 14px;
+  color: var(--secundary-color);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.google-icon {
+  width: 32px;
+  height: 32px;
 }

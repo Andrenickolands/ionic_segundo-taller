@@ -45,6 +45,7 @@
   --black-color: #000000;
   --text-color: #626262;
   --gray-color: #a0a0a0;
+  --ligt-gray-color: #d5d5d5;
   --background-color: #f5f5f5;
   --red-color: #ff7d69;
 
@@ -190,7 +191,7 @@ h3 {
   background-color: var(--secundary-color);
   color: var(--white-color);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 22px;
   border: none;
 }
 
@@ -205,7 +206,7 @@ h3 {
   background-color: transparent;
   color: var(--white-color);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 20px;
 }
 
 .btn-secundary:hover {
@@ -216,8 +217,9 @@ h3 {
 .btn-terciary {
   background-color: transparent;
   color: var(--white-color);
+  letter-spacing: 0.1rem;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 18px;
 }
 
 //////////////////////////// INPUTS //////////////////////////////
@@ -254,7 +256,8 @@ h3 {
   border: none;
   border-radius: 18px;
   padding: 0 40px 0 70px;
-  font-size: 24px;
+  font-size: 22px;
+  letter-spacing: 0.1rem;
   font-weight: 600;
   color: var(--gray-color);
   outline: none;
@@ -262,8 +265,10 @@ h3 {
 }
 
 .form-group input::placeholder {
-  color: var(--gray-color);
+  color: var(--ligt-gray-color);
   font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.05rem;
 }
 
 .form-group input:focus {

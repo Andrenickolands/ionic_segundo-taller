@@ -5,17 +5,25 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-pre-login',
+  templateUrl: './pre-login.page.html',
+  styleUrls: ['./pre-login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, CommonModule, FormsModule]
 })
-export class HomePage implements OnInit {
+export class PreLoginPage implements OnInit {
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+  
+  next() {
+    this.router.navigate(['/login']);
+  }
+
+  navigateToSingUp() {
+    this.router.navigate(['/signup']);
   }
 
 }
