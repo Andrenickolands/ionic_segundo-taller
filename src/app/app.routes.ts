@@ -30,4 +30,8 @@ export const routes: Routes = [
     path: '**',
     redirectTo: '/404'
   },
+  {
+    path: 'registrate',
+    loadComponent: () => import('./pages/registrate/registrate.page').then( m => m.RegistratePage)
+  },
 ];
