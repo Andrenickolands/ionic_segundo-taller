@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   imports: [IonContent, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
+  inputType: string = 'password';
+  // Form: FormGroup;
 
   constructor(private router: Router) { }
 
@@ -34,5 +36,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/signup']);
   }
 
+  togglePasswordVisibility() {
+    this.inputType = this.inputType === 'password' ? 'text' : 'password';
+  }
 
 }
