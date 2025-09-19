@@ -4,10 +4,15 @@
 
 .button-container{
     flex-direction: column;
-    gap: 2rem;
     margin-top: 2rem;
+    padding-left: 2rem;
 }
 
 h3{
      margin-top: 3rem;
+     position: relative;
+}
+
+.btn-terciary{
+    margin-left: 3.2rem;
 }

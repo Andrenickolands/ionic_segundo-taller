@@ -4,31 +4,12 @@
 
 h3 {
   font-size: 24px;
+  position: relative;
 }
+
 h4 {
   font-weight: 600;
-}
-
-.google-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin-top: 1rem;
-}
-
-.button-container.google {
-  margin-top: 1.2rem;
-}
-
-.btn.google {
-  background-color: var(--white-color);
-  color: var(--text-color);
-  font-weight: 600;
-  gap: 0.4rem;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 340px;
+  position: relative;
 }
 
 .btn-terciary {
@@ -40,7 +21,82 @@ h4 {
   letter-spacing: 0;
 }
 
-.google-icon {
-  width: 32px;
-  height: 32px;
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    position: relative;
+  }
+
+  h3 {
+    font-size: 14px;
+    position: relative;
+  }
+
+  h4 {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .name {
+    font-size: 1.1rem;
+    position: relative;
+  }
+
+  .app-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .app-logo-samll {
+    width: 70px;
+    height: 70px;
+  }
+
+  .form-container {
+    padding: 10px;
+  }
+
+  .form-group label {
+    font-size: 20px;
+  }
+
+  .form-group input {
+    height: 55px;
+    font-size: 18px;
+    padding: 0 20px 0 50px;
+  }
+
+  .input-icon {
+    left: 15px;
+    font-size: 16px;
+  }
+
+  .btn {
+    height: 56px;
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .btn.google {
+    font-size: 18px;
+  }
+
+  .google-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .no-margin{
+    margin-top: -0.8rem;
+  }
 }
