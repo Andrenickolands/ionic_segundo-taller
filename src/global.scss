@@ -73,17 +73,18 @@ a {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: clamp(1.75rem, 4vw, 2rem);
   font-weight: bolder;
   color: var(--white-color);
   text-align: center;
   transition: all 0.3s ease-in-out;
   position: relative;
   margin: 0 auto 1.5rem;
+  line-height: 1.2;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: clamp(1rem, 3vw, 1.125rem);
   font-weight: 600;
   color: var(--white-color);
   text-align: center;
@@ -93,18 +94,24 @@ h2 {
 }
 
 h3 {
-  max-width: 50%;
-  font-size: 28px;
+  font-size: clamp(1rem, 4vw, 1.60rem);
   font-weight: 700;
   color: var(--white-low);
   text-align: center;
   transition: all 0.3s ease-in-out;
   position: relative;
-  margin: 0 auto 1rem;
+  margin: 0 auto 2rem;
   width: 100%;
-  padding: 0 20px;
+  max-width: 90%;
+  padding: 0 1rem;
   box-sizing: border-box;
   line-height: 1.3;
+}
+
+h4 {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  color: var(--white-color);
+  margin: 0;
 }
 
 .container {
@@ -115,7 +122,8 @@ h3 {
   flex-direction: column;
   min-height: 100vh;
   max-width: 100%;
-  padding: 24px 0 28px 0;
+  padding: clamp(1rem, 3vw, 2rem) 1rem;
+  box-sizing: border-box;
 }
 
 .row-container {
@@ -124,18 +132,19 @@ h3 {
   align-items: center;
   flex-direction: row;
   margin-top: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
-.requisito {
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  color: var(--red-color);
-  font-size: 18px;
-  font-weight: 800;
-  display: block;
-  margin-top: 0;
-  margin-left: 0.34rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0;
+  overflow: hidden;
+  gap: clamp(1rem, 3vw, 1.8rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  flex-direction: row;
 }
 
 .icon-container {
@@ -144,6 +153,14 @@ h3 {
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+
+.app-logo-samll {
+  width: clamp(60px, 15vw, 100px);
+  height: clamp(60px, 15vw, 100px);
+  object-fit: contain;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
 }
 
 .app-icon {
@@ -164,38 +181,93 @@ h3 {
   z-index: 99999;
 }
 
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.requisito {
   position: relative;
-  overflow: hidden;
-  gap: 1.8rem;
-  margin-bottom: 2rem;
+  color: var(--red-color);
+  font-size: 18px;
+  font-weight: 800;
+  display: block;
+  margin-top: 0;
+  margin-left: 0.34rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
 }
 
-.app-logo-samll {
-  transform: scale(1);
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+/* Estilos para estados de error */
+
+.input-wrapper input.error {
+  border-color: #e74c3c;
+  color: #e74c3c;
 }
+
+.input-wrapper input.error::placeholder {
+  color: #e74c3c;
+  opacity: 0.7;
+}
+
+.error-message {
+  color: #ffb7af;
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 8px;
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Animación para los mensajes de error */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 //////////////////////////// BOTONES //////////////////////////////
 
 .button-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: min(90vw, 400px);
+  margin: 1.25rem auto 0;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.button-container.colum {
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.button-container.google {
+  margin-top: 1.2rem;
+}
+
+.google-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 1rem auto 0;
+  /* Centrado automático */
+  position: relative;
   width: 100%;
   max-width: 400px;
-  margin: 20px auto 0;
   padding: 0 20px;
 }
 
 .btn {
-  width: 300px;
-  height: 74px;
-  border-radius: 24px;
+  width: 100%;
+  max-width: 340px;
+  height: clamp(52px, 12vw, 74px);
+  border-radius: var(--border-radius-btn-normal);
   font-family: "Inter", sans-serif;
   text-align: center;
   cursor: pointer;
@@ -203,21 +275,26 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  font-size: clamp(1rem, 3vw, 1.375rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary {
   background-color: var(--secundary-color);
   color: var(--white-color);
-  font-weight: 700;
-  font-size: 22px;
-  border: none;
 }
 
-.btn-primary:hover {
-  background-color: var(--secundary-color);
+.btn-primary:hover:not(:disabled) {
+  background-color: #4da8d8;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 35, 74, 0.3);
-  border: none;
+  box-shadow: 0 6px 16px rgba(96, 191, 235, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn-secundary {
@@ -235,107 +312,93 @@ h3 {
 .btn-terciary {
   background-color: transparent;
   color: var(--white-color);
-  letter-spacing: 0.1rem;
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
   font-weight: 700;
-  font-size: 18px;
-  margin: 0.4rem auto 0;
-  /* Centrado automático */
-  display: block;
-  text-align: center;
-  width: fit-content;
-}
-
-.google-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 1rem auto 0;
-  /* Centrado automático */
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  padding: 0 20px;
-}
-
-.button-container.google {
-  margin-top: 1.2rem;
-}
-
-.btn.google {
-  background-color: var(--white-color);
-  color: var(--text-color);
-  font-weight: 600;
-  gap: 0.4rem;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 340px;
+  letter-spacing: 0.1rem;
+  margin: 1.4rem 0 0 0;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-terciary:hover {
-  background-color: transparent;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .btn.google {
   background-color: var(--white-color);
   color: var(--text-color);
   font-weight: 600;
-  gap: 0.8rem;
-  padding-left: 20px;
-  padding-right: 20px;
+  gap: 0.75rem;
+  font-size: clamp(0.875rem, 2.5vw, 1.4rem);
+}
+
+.btn.google:hover {
+  background-color: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .google-icon {
-  width: 32px;
-  height: 32px;
+  width: clamp(24px, 5vw, 32px);
+  height: clamp(24px, 5vw, 32px);
+  flex-shrink: 0;
+}
+
+/* Estilo para botón deshabilitado */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 //////////////////////////// INPUTS //////////////////////////////
 .form-container {
   width: 100%;
-  max-width: 1000px;
-  padding: 20px;
+  max-width: min(90vw, 400px);
+  margin: 0 auto;
+  padding: 0 1rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .form-group {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
   width: 100%;
-  max-width: 400px;
 }
 
 .form-group label {
   display: block;
   font-weight: 700;
   color: var(--secundary-color);
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  margin-bottom: 0.75rem;
   position: relative;
 }
 
 .form-group input {
-  height: 70px;
+  width: 100%;
+  height: clamp(50px, 12vw, 70px);
   background-color: var(--white-color) !important;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 18px;
-  padding: 0 40px 0 70px;
-  font-size: 22px;
-  letter-spacing: 0.1rem;
+  padding: 0 clamp(40px, 8vw, 60px) 0 clamp(50px, 12vw, 70px);
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  letter-spacing: 0.02em;
   font-weight: 600;
   color: var(--gray-color);
   outline: none;
   transition: all 0.3s ease;
   position: relative;
+  box-sizing: border-box;
 }
 
 .form-group input::placeholder {
   color: var(--ligt-gray-color);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.05rem;
-  position: relative;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  letter-spacing: 0.01em;
 }
 
 .form-group input:focus {
@@ -355,13 +418,6 @@ h3 {
   -webkit-box-shadow: 0 0 0 30px var(--white-color) inset !important;
   -webkit-text-fill-color: var(--gray-color) !important;
   background-color: var(--white-color) !important;
-}
-
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
 }
 
 .input-icon {
@@ -388,6 +444,57 @@ h3 {
 .google-icon {
   width: 32px;
   height: 32px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.input-icon.eye {
+  right: 12px;
+  left: auto;
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.input-icon.eye:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estados de validación para inputs */
+.input-wrapper input:valid {
+  border-color: var(--gray-color);
+}
+
+.input-wrapper input:invalid.ng-touched {
+  border-color: #ffb7af;
+}
+
+/* Estilos para toast personalizados */
+.error-toast {
+  --background: #ffb7af;
+  --color: white;
+}
+
+.success-toast {
+  --background: #27ae60;
+  --color: white;
 }
 
 /* Responsive Design */
