@@ -14,12 +14,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   inputType: string = 'password';
   isSubmitted: boolean = false;
-  loginForm!: FormGroup;
-
-  form = {
-    email: '',
-    password: '',
-  };
+  form!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,11 +22,11 @@ export class LoginPage implements OnInit {
     private toastController: ToastController) { }
 
   ngOnInit() {
-    this.createForm();
+    this.validateForm();
   }
 
-  createForm() {
-    this.loginForm = this.formBuilder.group({
+  validateForm() {
+    this.form = this.formBuilder.group({
       email: ['', [
         Validators.required,
         Validators.email,
@@ -47,16 +42,16 @@ export class LoginPage implements OnInit {
 
   // Getters para acceder fácilmente a los controles del formulario
   get email() {
-    return this.loginForm.get('email');
+    return this.form.get('email');
   }
 
   get password() {
-    return this.loginForm.get('password');
+    return this.form.get('password');
   }
 
   // Método para obtener mensajes de error específicos
   getErrorMessage(fieldName: string): string {
-    const field = this.loginForm.get(fieldName);
+    const field = this.form.get(fieldName);
 
     if (field?.hasError('required')) {
       return `${fieldName === 'email' ? 'Email' : 'Contraseña'} es requerido`;
@@ -82,14 +77,14 @@ export class LoginPage implements OnInit {
 
   // Método para verificar si un campo tiene errores y ha sido tocado
   hasError(fieldName: string): boolean {
-    const field = this.loginForm.get(fieldName);
+    const field = this.form.get(fieldName);
     return !!(field?.invalid && (field?.dirty || field?.touched || this.isSubmitted));
   }
 
   // Método para limpiar espacios en blanco de los campos de texto
   private trimFormData(): void {
-    const emailValue = this.loginForm.get('email')?.value?.trim()?.toLowerCase();
-    this.loginForm.patchValue({
+    const emailValue = this.form.get('email')?.value?.trim()?.toLowerCase();
+    this.form.patchValue({
       email: emailValue
     });
   }
@@ -125,10 +120,10 @@ export class LoginPage implements OnInit {
     this.trimFormData();
 
     // Verificar si el formulario es válido
-    if (this.loginForm.invalid) {
+    if (this.form.invalid) {
       // Marcar todos los campos como tocados para mostrar errores
-      Object.keys(this.loginForm.controls).forEach(key => {
-        this.loginForm.get(key)?.markAsTouched();
+      Object.keys(this.form.controls).forEach(key => {
+        this.form.get(key)?.markAsTouched();
       });
 
       await this.presentErrorToast('Por favor, corrige los errores en el formulario');
@@ -137,7 +132,7 @@ export class LoginPage implements OnInit {
 
     try {
       // Obtener valores del formulario
-      const formData = this.loginForm.value;
+      const formData = this.form.value;
 
       // Aquí iría la lógica de autenticación
       console.log('Datos del formulario:', formData);
