@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
   }
 
   navigateToSingUp() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/registrate']);
   }
 
   togglePasswordVisibility() {

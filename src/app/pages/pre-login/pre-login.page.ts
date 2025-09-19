@@ -23,7 +23,7 @@ export class PreLoginPage implements OnInit {
   }
 
   navigateToSingUp() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/registrate']);
   }
 
 }
