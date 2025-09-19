@@ -1,0 +1,354 @@
+
+/* Contenedor específico para registro */
+.registro-container {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  padding: clamp(1rem, 2vw, 1.5rem) 1rem;
+  box-sizing: border-box;
+}
+
+/* Ajustes específicos para formulario de registro - AMPLIADO */
+.registro-form-container {
+  width: 100% !important;
+  max-width: min(95vw, 700px) !important; 
+  margin: 0 auto !important;
+  padding: 0 0.5rem !important;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Espaciado específico para campos de registro */
+.registro-form-group {
+  position: relative;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  width: 100% !important;
+  max-width: none !important; 
+}
+
+/* Labels específicos para registro */
+.registro-form-group label {
+  display: block;
+  font-weight: 700;
+  color: var(--secundary-color);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+/* Inputs específicos para registro - MEJORADOS */
+.registro-form-group input {
+  width: 100% !important;
+  min-width: 280px !important; 
+  max-width: none !important; 
+  height: clamp(50px, 10vw, 60px) !important;
+  background-color: var(--white-color) !important;
+  border: 2px solid transparent !important;
+  border-radius: 18px !important;
+  padding: 0 clamp(40px, 7vw, 55px) 0 clamp(18px, 3vw, 24px) !important;
+  font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--gray-color);
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box !important;
+}
+
+/* Solo los campos de contraseña tendrán padding izquierdo extra para el ícono del ojo */
+.registro-form-group input[type="password"],
+.registro-form-group input[data-password="true"] {
+  padding: 0 clamp(40px, 7vw, 55px) 0 clamp(18px, 3vw, 24px);
+}
+
+/* Placeholder específico para registro */
+.registro-form-group input::placeholder {
+  color: var(--ligt-gray-color);
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  letter-spacing: 0.01em;
+}
+
+/* Estados de focus y validación para registro */
+.registro-form-group input:focus {
+  background-color: var(--white-color);
+  box-shadow: 0 0 0 3px rgba(96, 191, 235, 0.1);
+  border-color: var(--secundary-color);
+}
+
+/* Wrapper específico para inputs de registro */
+.registro-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+  max-width: none !important; 
+}
+
+/* Ícono del ojo solo para campos de contraseña en registro */
+.registro-input-wrapper .input-icon.eye {
+  right: 15px; 
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  position: absolute;
+}
+
+.registro-input-wrapper .input-icon.eye:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Checkbox específico para términos y condiciones */
+.registro-checkbox-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* ocultar visualmente el checkbox nativo pero mantenerlo accesible */
+.registro-checkbox-wrapper input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;            
+  z-index: 2;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* etiqueta: espacio para la caja personalizada */
+.registro-checkbox-wrapper label {
+  display: inline-block;
+  padding-left: 28px;
+  position: relative;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 500;
+  color: var(--gray-color);
+  line-height: 1.4;
+  user-select: none;
+}
+
+/* cuadro visible (reemplaza al checkbox nativo) */
+.registro-checkbox-wrapper label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--secundary-color);
+  border-radius: 4px;
+  background-color: var(--white-color);
+  box-sizing: border-box;
+  transition: background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* marca de verificación */
+.registro-checkbox-wrapper label::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 10px;
+  border: solid var(--white-color);
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  pointer-events: none;
+}
+
+/* estado checked: cambia fondo y muestra check */
+.registro-checkbox-wrapper input[type="checkbox"]:checked + label::before {
+  background-color: var(--secundary-color);
+  border-color: var(--secundary-color);
+}
+.registro-checkbox-wrapper input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+  transform: translateY(-50%) rotate(45deg) scale(1);
+}
+
+/* hover y focus accesible */
+.registro-checkbox-wrapper label:hover::before {
+  border-color: #4da8d8;
+}
+.registro-checkbox-wrapper input[type="checkbox"]:focus + label::before {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 191, 235, 0.25);
+}
+
+/* estado de error — aplicar la clase .error al wrapper */
+.registro-checkbox-wrapper.error label::before {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.12);
+}
+.registro-checkbox-wrapper.error input[type="checkbox"]:checked + label::before {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+/* Estados de error específicos para registro */
+.registro-input-wrapper.error input {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.registro-input-wrapper.error input::placeholder {
+  color: #e74c3c;
+  opacity: 0.7;
+}
+
+.registro-checkbox-wrapper.error input[type="checkbox"] {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+/* Responsive específico para registro - MEJORADO */
+@media (max-width: 768px) {
+  .registro-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .registro-form-container {
+    max-width: 99vw !important; 
+    padding: 0 0.5rem !important;
+  }
+  
+  .registro-form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .registro-form-group label {
+    font-size: 18px;
+  }
+  
+  .registro-form-group input {
+    height: 52px !important;
+    font-size: 16px !important;
+    padding: 0 35px 0 18px !important;
+    min-width: 250px !important;
+  }
+  
+  .registro-checkbox-wrapper {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-container {
+    padding: 0.75rem 0.1rem !important; /* Padding lateral mínimo */
+  }
+  
+  .registro-form-container {
+    max-width: 99vw !important; 
+    padding: 0 0.3rem !important;
+  }
+  
+  .registro-form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .registro-form-group label {
+    font-size: 16px;
+    margin-bottom: 0.4rem;
+  }
+  
+  .registro-form-group input {
+    height: 48px !important;
+    font-size: 16px !important; 
+    padding: 0 32px 0 16px !important;
+    min-width: 200px !important;
+  }
+  
+  .registro-form-group input[type="password"],
+  .registro-form-group input[data-password="true"] {
+    padding: 0 32px 0 16px !important;
+  }
+  
+  .registro-input-wrapper .input-icon.eye {
+    right: 12px; 
+  }
+  
+  .registro-button-container {
+    margin: 1rem auto 0;
+    gap: 0.75rem;
+  }
+  
+  .registro-checkbox-wrapper label {
+    font-size: 14px;
+  }
+}
+
+/* Media query adicional para pantallas muy anchas */
+@media (min-width: 1200px) {
+  .registro-form-container {
+    max-width: 750px !important; 
+  }
+  
+  .registro-form-group input {
+    height: 65px !important;
+    font-size: 1.3rem !important;
+    padding: 0 60px 0 26px !important;
+  }
+}
+
+/* REGLAS ADICIONALES MÁS ESPECÍFICAS PARA FORZAR EL ANCHO */
+.registro-container .registro-form-container {
+  width: 100% !important;
+  max-width: min(95vw, 700px) !important;
+}
+
+.registro-container .registro-form-container .registro-form-group {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.registro-container .registro-form-container .registro-form-group .registro-input-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.registro-container .registro-form-container .registro-form-group input,
+.registro-container .registro-form-container .registro-form-group .registro-input-wrapper input {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 280px !important;
+}
+
+.btn-terciary {
+    color: var(--secundary-color);
+    background-color: transparent;
+    height: 20px;
+    width: 180px;
+    margin-left: 150px;
+    margin-top: -20px;
+}
+
+p {
+    color: var(--gray-color);
+    font-weight: 600;
+    margin-top: 20px;
+}
